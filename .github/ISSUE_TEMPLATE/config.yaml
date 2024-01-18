@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+issue_template:
+  - name: bug_report.md
+    url: https://github.com/koko1928/GWH/github/ISSUE_TEMPLATE/bug_report.md
+    about: way to bug report
+  - name: feature_request.md
+    url: https://github.com/koko1928/GWH/github/ISSUE_TEMPLATE/feature_request.md
+    about: feature request
