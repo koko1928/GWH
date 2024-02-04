@@ -43,7 +43,8 @@
       height: 70vh;
     }
 
-    #fullscreenButton {
+    #fullscreenButton,
+    #homeButton {
       margin-top: 10px;
       padding: 10px;
       background-color: #080;
@@ -63,6 +64,7 @@
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.747798533325!2d139.74324421566527!3d35.658584838820154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bbd9009ec09%3A0x481a93f0d2a409dd!2z5p2x5Lqs44K_44Ov44O8!5e0!3m2!1sja!2sjp!4v1636041735064!5m2!1sja!2sjp"
     width="1280" height="1024" id="mapIframe"></iframe>
   <button id="fullscreenButton" onclick="toggleFullscreen()">全画面モード</button>
+  <button id="homeButton" onclick="goHome()">ホームに戻る</button>
   <a href="/pages/test.html">test</a>
 
   <script>
@@ -78,6 +80,10 @@
       } else if (iframe.msRequestFullscreen) {
         iframe.msRequestFullscreen();
       }
+    }
+
+    function goHome() {
+      window.location.href = "../index.html"; 
     }
   </script>
 </body>
