@@ -5,87 +5,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="https://koko1928.github.io/GWH/images/favicon.ico" type="image/x-icon">
+  <title>ゲームセンター</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #ffa500;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #ffa500;
     }
 
-    #header {
+    header {
       display: flex;
       align-items: center;
-      margin-bottom: 20px;
+      justify-content: center;
+      width: 100%;
+      padding: 20px;
+      background-color: #080;
+      color: white;
     }
 
-    #logo {
+    header img {
       width: 80px;
       height: 80px;
       margin-right: 20px;
     }
 
-    h1 {
-      color: #080;
+    header h1 {
+      margin: 0;
     }
 
-    iframe {
-      border: 2px solid #ccc;
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .game {
+      background-color: white;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 90%;
-      max-width: 1200px;
-      height: 70vh;
+      overflow: hidden;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
 
-    #fullscreenButton,
-    #homeButton {
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #080;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    .game:hover {
+      transform: translateY(-10px);
+    }
+
+    .game img {
+      width: 100%;
+      height: auto;
+    }
+
+    .game h2 {
+      margin: 10px 0;
+      font-size: 1.2em;
+      color: #080;
     }
   </style>
 </head>
 
 <body>
-  <div id="header">
-    <img id="logo" src="https://koko1928.github.io/GWH/images/Pagelogo.png" alt="Logo">
-    <h1>東京タワー</h1>
-  </div>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.747798533325!2d139.74324421566527!3d35.658584838820154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bbd9009ec09%3A0x481a93f0d2a409dd!2z5p2x5Lqs44K_44Ov44O8!5e0!3m2!1sja!2sjp!4v1636041735064!5m2!1sja!2sjp"
-    width="1280" height="1024" id="mapIframe"></iframe>
-  <button id="fullscreenButton" onclick="toggleFullscreen()">全画面モード</button>
-  <button id="homeButton" onclick="goHome()">ホームに戻る</button>
-  <a href="/pages/test.html">test</a>
-
-  <script>
-    function toggleFullscreen() {
-      const iframe = document.getElementById('mapIframe');
-
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-      } else if (iframe.mozRequestFullScreen) {
-        iframe.mozRequestFullScreen();
-      } else if (iframe.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen();
-      } else if (iframe.msRequestFullscreen) {
-        iframe.msRequestFullscreen();
-      }
-    }
-
-    function goHome() {
-      window.location.href = "../index.html"; 
-    }
-  </script>
+  <header>
+    <img src="https://koko1928.github.io/GWH/images/Pagelogo.png" alt="Logo">
+    <h1>GWH - home</h1>
+  </header>
+  <main>
+    <div class="game" onclick="window.location.href='/pages/gaming.html?game=1'">
+      <img src="/images/game1_thumbnail.jpg" alt="Game 1">
+      <h2>ゲーム1</h2>
+    </div>
+    <div class="game" onclick="window.location.href='/pages/gaming.html?game=2'">
+      <img src="/images/game2_thumbnail.jpg" alt="Game 2">
+      <h2>ゲーム2</h2>
+    </div>
+    <div class="game" onclick="window.location.href='/pages/gaming.html?game=3'">
+      <img src="/images/game3_thumbnail.jpg" alt="Game 3">
+      <h2>ゲーム3</h2>
+    </div>
+    <div class="game" onclick="window.location.href='/pages/gaming.html?game=4'">
+      <img src="/images/game4_thumbnail.jpg" alt="Game 4">
+      <h2>ゲーム4</h2>
+    </div>
+    <div class="game" onclick="window.location.href='/pages/gaming.html?game=5'">
+      <img src="/images/game5_thumbnail.jpg" alt="Game 5">
+      <h2>ゲーム5</h2>
+    </div>
+    <div class="game" onclick="window.location.href='/pages/gaming.html?game=6'">
+      <img src="/images/game6_thumbnail.jpg" alt="Game 6">
+      <h2>ゲーム6</h2>
+    </div>
+    <!-- TODO: 他のゲームも追加 -->
+  </main>
 </body>
 
 </html>
