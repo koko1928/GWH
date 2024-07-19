@@ -31,6 +31,7 @@
       width: 80px;
       height: 80px;
       margin-right: 20px;
+      cursor: pointer;
     }
 
     header h1 {
@@ -54,8 +55,13 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    button {
+    .button-group {
       margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
       padding: 10px 20px;
       background-color: #080;
       color: white;
@@ -85,13 +91,30 @@
   </header>
   <main>
     <iframe id="gameFrame" src=""></iframe>
-    <button onclick="window.location.href='../index.html'">メインページに戻る</button>
+    <div class="button-group">
+      <button onclick="toggleFullscreen()">全画面でプレイ</button>
+      <button onclick="window.location.href='../index.html'">メインページに戻る</button>
+    </div>
   </main>
 
   <script>
     function getQueryParam(param) {
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.get(param);
+    }
+
+    function toggleFullscreen() {
+      const iframe = document.getElementById('gameFrame');
+
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.mozRequestFullScreen) {
+        iframe.mozRequestFullScreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
     }
 
     const game = getQueryParam('game');
@@ -117,7 +140,7 @@
         case '6':
           gameFrame.src = 'https://example.com/game6';
           break;
-          //TODO: ゲームの追加など
+        // TODO: ゲームの追加など
         default:
           gameFrame.src = '';
           break;
